@@ -33,8 +33,8 @@ class CheckoutSolution:
             return num_of_d * 15
 
         def process_F(num_of_f):
-            multiples_2 = num_of_f // 3
-            return (num_of_f - multiples_2) * 10
+            multiples_3 = num_of_f // 3
+            return (num_of_f - multiples_3) * 10
 
         allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         total = 0
@@ -47,7 +47,7 @@ class CheckoutSolution:
             if sku not in allowed:
                 return -1
             count[sku] = count.get(sku, 0) + 1
-        products = ["E", "A", "B", "C", "D"]
+        products = ["E", "A", "B", "C", "D", "F"]
 
         for p in products:
             if count.get(p) == 0:
@@ -75,6 +75,7 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
 
