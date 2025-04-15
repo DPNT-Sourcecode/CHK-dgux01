@@ -34,6 +34,7 @@ class CheckoutSolution:
 
         def process_F(num_of_f):
             multiples_2 = num_of_f // 3
+            return (num_of_f - multiples_2) * 10
 
         allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         total = 0
@@ -74,6 +75,7 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
 
