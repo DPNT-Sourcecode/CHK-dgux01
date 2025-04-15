@@ -7,6 +7,14 @@ class CheckoutSolution:
     # under process function, have new funcs for apply discount, apply freebie
     def checkout(self, skus):
 
+        def process(sku):
+            pass
+
+        def apply_discount():
+            pass
+
+        def apply_freebie(num, sku):
+
         def process_A(num_of_a):
             multiples_5 = num_of_a // 5
             remainder_of_5 = num_of_a % 5
@@ -42,7 +50,8 @@ class CheckoutSolution:
         total = 0
         if not skus:
             return total
-        prices = {"A": 50, "B": 30, "C": 20, "D": 15}
+        prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10, "G": 20, "H": 10, "I": 35,
+                  "J": 60, "K": 80, "L": 90, "M": 15, "N": 40, "O": 10, "P": 50, "Q": 30, "R": 50, "S": 30, "T": 20, "U": 40, "V": 50, "W": 20, "X": 90, "Y": 10, "Z": 50}
         count = dict()
 
         for sku in skus:
@@ -80,3 +89,4 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
