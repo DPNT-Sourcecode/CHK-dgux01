@@ -11,17 +11,16 @@ class CheckoutSolution:
         # SKU -> [[num, price], [num, price]]
         special_discount = {"A": [[3, 150], [5, 200]], "B": [[2, 45]], "H": [
             [5, 45], [10, 80]], "K": [[2, 150]], "P": [[5, 200]], "Q": [[3, 80]], "V": [[2, 90], [3, 130]]}
-
+        # SKU -> [[num, SKU]]
         specials_freebie = {"E": [2, "B"], "F": [2, "F"], "N": [
-            3, "M"], "R": [3, "Q"]}  # SKU -> [[num, SKU]]
+            3, "M"], "R": [3, "Q"], "U": [3, "U"]}
 
         def process(sku):
-            pass
 
         def apply_discount():
             pass
 
-        def apply_freebie(num, sku):
+        def process_freebie(num, sku):
 
         def process_A(num_of_a):
             multiples_5 = num_of_a // 5
@@ -94,4 +93,5 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
