@@ -33,8 +33,9 @@ class CheckoutSolution:
                 total += multiples * 45
                 total += singles * 30
             else:
-                total += prices.get(item)
+                total += (prices.get(item) * freq)
         return total
+
 
 
 
