@@ -3,10 +3,6 @@ class CheckoutSolution:
 
     # skus = unicode string
     def checkout(self, skus):
-        # assume string is just string of ABCs
-        # Need to keep track of item: price
-        # need to find out how many, maybe lookup in dictionary
-        # Need to apply special discount, maybe % and //
         allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         total = 0
         if not skus:
@@ -35,12 +31,20 @@ class CheckoutSolution:
             else:
                 total += (prices.get(item) * freq)
         return total
+    # Probably need to process E's first, to determine number of B's
 
-    def process_A(num_of_a):
+    def process_A(self, num_of_a):
         multiples_5 = num_of_a // 5
         remainder_of_5 = num_of_a % 5
         multiples_3 = remainder_of_5 // 3
         remainder_of_3 = remainder_of_5 % 3
 
         return (multiples_5 * 200) + (multiples_3 * 130) + (remainder_of_3 * 50)
+
+    def process_B(self, num_of_b):
+        multiples_2 = num_of_b // 2
+        remainder_of_2 = num_of_b % 2
+
+        return (multiples_2 * 45)
+
 
