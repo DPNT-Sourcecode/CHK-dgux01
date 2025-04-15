@@ -5,8 +5,12 @@ class CheckoutSolution:
     # If more products, might need to make a super process, then do case match
     def checkout(self, skus):
         # IDEA: have a cart
+        allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        total = 0
+        if not skus:
+            return total
         cart = [[], [], []]  # Freebies, Discounts, everything else
-
+        count = dict()
         prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10, "G": 20, "H": 10, "I": 35,
                   "J": 60, "K": 80, "L": 90, "M": 15, "N": 40, "O": 10, "P": 50, "Q": 30, "R": 50, "S": 30, "T": 20, "U": 40, "V": 50, "W": 20, "X": 90, "Y": 10, "Z": 50}
         # SKU -> [[num, price], [num, price]]
@@ -27,8 +31,8 @@ class CheckoutSolution:
             else:
                 cart[2].append(sku)
 
-        freebies_total = process_freebies(cart[0])
-        discounts_total = process_discounts(cart[1])
+        def process_normal_sku(regular_skus):
+            return sum(prices.get(sku, 0) for sku in regular_skus)
 
         def process_discounts(discounts):
             total = 0
@@ -86,42 +90,13 @@ class CheckoutSolution:
             multiples_3 = num_of_f // 3
             return (num_of_f - multiples_3) * 10
 
-        allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        total = 0
-        if not skus:
-            return total
-
-        count = dict()
-
-        products = ["E", "A", "B", "C", "D", "F"]
-        products = [chr(x) for x in range(ord("A"), ord("Z") + 1)]
-
-        for p in products:
-            if count.get(p) == 0:
-                continue
-            match p:
-                case "E":
-                    free_b, amount_e = process_E(count.get("E", 0))
-                    count["B"] = count.get("B", 0) - free_b
-                    total += amount_e
-                case "A":
-                    amount_a = process_A(count.get("A", 0))
-                    total += amount_a
-                case "B":
-                    amount_b = process_B(count.get("B", 0))
-                    total += amount_b
-                case "C":
-                    amount_c = process_C(count.get("C", 0))
-                    total += amount_c
-                case "D":
-                    amount_d = process_D(count.get("D", 0))
-                    total += amount_d
-                case "F":
-                    amount_f = process_F(count.get("F", 0))
-                    total += amount_f
+        freebies_total = process_freebies(cart[0])
+        discounts_total = process_discounts(cart[1])
+        regular_total = process_normal_sku(cart[2])
 
         # can reduce amount of B instead in lookup
-        return total
+        return sum(freebies_total, discounts_total, regular_total)
+
 
 
 
