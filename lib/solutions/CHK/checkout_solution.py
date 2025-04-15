@@ -6,6 +6,12 @@ class CheckoutSolution:
     # Possibly a process function, decides whether in discounted or not
     # under process function, have new funcs for apply discount, apply freebie
     def checkout(self, skus):
+        prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10, "G": 20, "H": 10, "I": 35,
+                  "J": 60, "K": 80, "L": 90, "M": 15, "N": 40, "O": 10, "P": 50, "Q": 30, "R": 50, "S": 30, "T": 20, "U": 40, "V": 50, "W": 20, "X": 90, "Y": 10, "Z": 50}
+        specials_discount = dict()  # SKU -> [[num, price], [num, price]]
+        special_discount = {"A": [[3, 150], [5, 200]], "B": [[2, 45]], "H": [
+            [5, 45], [10, 80]], "K": [[2, 150]], "P": [[5, 200]], "Q": [[3, 80]]}
+        specials_freebie = dict()  # SKU -> [[num, SKU]]
 
         def process(sku):
             pass
@@ -50,8 +56,7 @@ class CheckoutSolution:
         total = 0
         if not skus:
             return total
-        prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10, "G": 20, "H": 10, "I": 35,
-                  "J": 60, "K": 80, "L": 90, "M": 15, "N": 40, "O": 10, "P": 50, "Q": 30, "R": 50, "S": 30, "T": 20, "U": 40, "V": 50, "W": 20, "X": 90, "Y": 10, "Z": 50}
+
         count = dict()
 
         for sku in skus:
@@ -60,8 +65,6 @@ class CheckoutSolution:
             count[sku] = count.get(sku, 0) + 1
         products = ["E", "A", "B", "C", "D", "F"]
         products = [chr(x) for x in range(ord("A"), ord("Z") + 1)]
-        specials_discount = dict()  # SKU -> [[num, price], [num, price]]
-        specials_freebie = dict()  # SKU -> [[num, SKU]]
 
         for p in products:
             if count.get(p) == 0:
@@ -89,4 +92,3 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
-
