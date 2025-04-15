@@ -97,10 +97,3 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return sum(freebies_total, discounts_total, regular_total)
-
-
-
-
-
-
-
