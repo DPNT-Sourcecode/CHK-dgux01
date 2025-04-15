@@ -35,3 +35,12 @@ class CheckoutSolution:
             else:
                 total += (prices.get(item) * freq)
         return total
+
+    def process_A(num_of_a):
+        multiples_5 = num_of_a // 5
+        remainder_of_5 = num_of_a % 5
+        multiples_3 = remainder_of_5 // 3
+        remainder_of_3 = remainder_of_5 % 3
+
+        return (multiples_5 * 200) + (multiples_3 * 130) + (remainder_of_3 * 50)
+
