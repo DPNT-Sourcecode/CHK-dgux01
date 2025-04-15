@@ -70,14 +70,8 @@ class CheckoutSolution:
                     amount_d = process_D(count.get("D", 0))
                     total += amount_d
                 case "F":
-                    amount_f = process_F(count.get("F"), 0)
+                    amount_f = process_F(count.get("F", 0))
                     total += amount_f
 
         # can reduce amount of B instead in lookup
         return total
-
-
-
-
-
-
