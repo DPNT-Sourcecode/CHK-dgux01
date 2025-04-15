@@ -110,12 +110,3 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
-
-
-
-
-
-
-
-
-
