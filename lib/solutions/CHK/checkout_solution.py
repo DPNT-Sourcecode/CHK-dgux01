@@ -7,6 +7,9 @@ class CheckoutSolution:
         # Need to keep track of item: price
         # need to find out how many, maybe lookup in dictionary
         # Need to apply special discount, maybe % and //
+        allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        if not skus or :
+            return -1
         prices = {"A": 50, "B": 30, "C": 20, "D": 15}
         count = dict()
 
@@ -29,7 +32,3 @@ class CheckoutSolution:
             else:
                 total += prices.get(item)
         return total
-
-
-
-
