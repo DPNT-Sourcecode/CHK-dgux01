@@ -2,6 +2,7 @@
 class CheckoutSolution:
 
     # skus = unicode string
+    # If more products, might need to make a super process, then do case match
     def checkout(self, skus):
         allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         total = 0
@@ -15,22 +16,9 @@ class CheckoutSolution:
                 return -1
             count[sku] = count.get(sku, 0) + 1
 
-        for item, freq in count.items():
-            if freq == 0:
-                continue
-            if item == "A":
-                multiples = freq // 3
-                singles = freq % 3
-                total += multiples * 130
-                total += singles * 50
-            elif item == "B":
-                multiples = freq // 2
-                singles = freq % 2
-                total += multiples * 45
-                total += singles * 30
-            else:
-                total += (prices.get(item) * freq)
-        return total
+        free_b, amount_e = self.process_E(count.get("E"))
+        amount_a = self.process_A(count.get("A"))
+        total += amount_e
     # Probably need to process E's first, to determine number of B's
 
     def process_A(self, num_of_a):
@@ -51,6 +39,7 @@ class CheckoutSolution:
     def process_E(self, num_of_e):
         num_free_b = num_of_e // 2
         return num_free_b, num_of_e * 40
+
 
 
 
