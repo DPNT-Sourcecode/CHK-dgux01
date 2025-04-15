@@ -34,8 +34,9 @@ class CheckoutSolution:
 
         def process_freebies(freebies):
             for f in freebies:
-                # unpack
                 num_required_to_buy, free_sku = special_freebie.get(f)
+                multiples = count.get(f, 0) // num_required_to_buy
+                count[free_sku] -= count.get(free_sku, 0) - multiples
 
         def process_freebie(num, sku):
 
@@ -106,6 +107,7 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
 
