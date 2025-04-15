@@ -32,7 +32,10 @@ class CheckoutSolution:
                 cart[2].append(sku)
 
         def process_normal_sku(regular_skus):
-            return sum(prices.get(sku, 0) for sku in regular_skus)
+            total = 0
+            for sku in regular_skus:
+                # Need to multiply regular sku freq with price, for each sku
+                pass
 
         def process_discounts(discounts):
             total = 0
@@ -56,8 +59,6 @@ class CheckoutSolution:
                 count[free_sku] -= count.get(free_sku, 0) - multiples
                 total += count.get(sku, 0) * prices.get(sku, 0)
             return total
-
-        def process_freebie(num, sku):
 
         def process_A(num_of_a):
             multiples_5 = num_of_a // 5
@@ -96,6 +97,7 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return sum(freebies_total, discounts_total, regular_total)
+
 
 
 
