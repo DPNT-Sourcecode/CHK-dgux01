@@ -23,6 +23,7 @@ class CheckoutSolution:
         amount_d = self.process_D(count.get("D"))
 
         total += sum(amount_a, amount_b, amount_c, amount_d, amount_e)
+        return total
     # Probably need to process E's first, to determine number of B's
 
     def process_A(self, num_of_a):
@@ -51,3 +52,4 @@ class CheckoutSolution:
 
     def process_D(self, num_of_d):
         return num_of_d * 15
+
