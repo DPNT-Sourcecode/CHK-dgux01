@@ -51,7 +51,7 @@ class CheckoutSolution:
             match p:
                 case "E":
                     free_b, amount_e = process_E(count.get("E", 0))
-                    count["B"] -= free_b
+                    count["B"] = count.get("B", 0) - free_b
                     total += amount_e
                 case "A":
                     amount_a = process_A(count.get("A", 0))
@@ -68,5 +68,6 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
