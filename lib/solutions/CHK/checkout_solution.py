@@ -33,12 +33,13 @@ class CheckoutSolution:
         # List of skus with freebies
 
         def process_freebies(freebies):
+            # Process all the freebie skus to reduce count (acts as cart tracker)
             total = 0
-            for f in freebies:
-                num_required_to_buy, free_sku = special_freebie.get(f)
-                multiples = count.get(f, 0) // num_required_to_buy
+            for sku in freebies:
+                num_required_to_buy, free_sku = special_freebie.get(sku)
+                multiples = count.get(sku, 0) // num_required_to_buy
                 count[free_sku] -= count.get(free_sku, 0) - multiples
-                total += count.get(f, 0) * prices.get(f, 0)
+                total += count.get(sku, 0) * prices.get(sku, 0)
 
         def process_freebie(num, sku):
 
@@ -109,6 +110,7 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
 
