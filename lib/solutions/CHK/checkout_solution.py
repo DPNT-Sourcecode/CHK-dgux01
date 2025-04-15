@@ -42,9 +42,15 @@ class CheckoutSolution:
         return (multiples_5 * 200) + (multiples_3 * 130) + (remainder_of_3 * 50)
 
     def process_B(self, num_of_b):
+        # Maybe process E here?
         multiples_2 = num_of_b // 2
         remainder_of_2 = num_of_b % 2
 
-        return (multiples_2 * 45)
+        return (multiples_2 * 45) + (remainder_of_2 * 30)
+
+    def process_E(self, num_of_e):
+        num_free_b = num_of_e // 2
+        return num_free_b, num_of_e * 40
+
 
 
