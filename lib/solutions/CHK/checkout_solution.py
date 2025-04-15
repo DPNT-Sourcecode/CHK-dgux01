@@ -12,5 +12,16 @@ class CheckoutSolution:
 
         for sku in skus:
             count[sku] = count.get(sku, 0) + 1
+        total = 0
+        for item, freq in count.items():
+            if freq == 0:
+                continue
+            if item == "A":
+                multiples = freq // 3
+                singles = freq % 3
+                total += multiples * 130
+                total += singles * 50
+            elif item == "B":
+
 
 
