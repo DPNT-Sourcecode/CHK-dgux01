@@ -10,3 +10,7 @@ class CheckoutSolution:
         prices = {"A": 50, "B": 30, "C": 20, "D": 15}
         count = dict()
 
+        for sku in skus:
+            count[sku] = count.get(sku, 0) + 1
+
+
