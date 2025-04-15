@@ -29,12 +29,13 @@ class CheckoutSolution:
                 total += singles * 50
             elif item == "B":
                 multiples = freq // 2
-                singles = freq % 3
+                singles = freq % 2
                 total += multiples * 45
                 total += singles * 30
             else:
                 total += prices.get(item)
         return total
+
 
 
 
