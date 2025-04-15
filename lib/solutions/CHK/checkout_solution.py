@@ -3,6 +3,8 @@ class CheckoutSolution:
 
     # skus = unicode string
     # If more products, might need to make a super process, then do case match
+    # Possibly a process function, decides whether in discounted or not
+    # under process function, have new funcs for apply discount, apply freebie
     def checkout(self, skus):
 
         def process_A(num_of_a):
@@ -78,5 +80,6 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
