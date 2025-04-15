@@ -4,7 +4,6 @@ class CheckoutSolution:
     # skus = unicode string
     # If more products, might need to make a super process, then do case match
     def checkout(self, skus):
-        return -1
 
         def process_A(num_of_a):
             multiples_5 = num_of_a // 5
@@ -45,27 +44,29 @@ class CheckoutSolution:
                 return -1
             count[sku] = count.get(sku, 0) + 1
         products = ["E", "A", "B", "C", "D"]
+
         for p in products:
             if count.get(p) == 0:
                 continue
             match p:
                 case "E":
-                    free_b, amount_e = process_E(count.get("E"))
+                    free_b, amount_e = process_E(count.get("E", 0))
                     count["B"] -= free_b
                     total += amount_e
                 case "A":
-                    amount_a = process_A(count.get("A"))
+                    amount_a = process_A(count.get("A", 0))
                     total += amount_a
                 case "B":
-                    amount_b = process_B(count.get("B"))
+                    amount_b = process_B(count.get("B", 0))
                     total += amount_b
                 case "C":
-                    amount_c = process_C(count.get("C"))
+                    amount_c = process_C(count.get("C", 0))
                     total += amount_c
                 case "D":
-                    amount_d = process_D(count.get("D"))
+                    amount_d = process_D(count.get("D", 0))
                     total += amount_d
 
         # can reduce amount of B instead in lookup
         return total
+
 
