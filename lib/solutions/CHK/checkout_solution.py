@@ -33,7 +33,8 @@ class CheckoutSolution:
             total = 0
             for sku in discounts:
                 amount_in_cart = count.get(sku, 0)
-                for amount, price in special_discount.get(sku):
+
+                for amount_for_deal, bargain_price in special_discount.get(sku):
 
                     # List of skus with freebies
 
@@ -116,6 +117,7 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
 
