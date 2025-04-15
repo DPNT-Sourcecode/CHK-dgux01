@@ -15,6 +15,7 @@ class CheckoutSolution:
             if sku not in allowed:
                 return -1
             count[sku] = count.get(sku, 0) + 1
+        products = ["E", "A", "B", "C", "D"]
 
         free_b, amount_e = self.process_E(count.get("E"))
         amount_a = self.process_A(count.get("A"))
@@ -52,4 +53,5 @@ class CheckoutSolution:
 
     def process_D(self, num_of_d):
         return num_of_d * 15
+
 
