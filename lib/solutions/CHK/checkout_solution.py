@@ -29,10 +29,13 @@ class CheckoutSolution:
 
         freebies_total = process_freebies(cart[0])
 
-        def apply_discount():
-            pass
+        def process_discounts(discounts):
+            total = 0
+            for sku in discounts:
+                amount_in_cart = count.get(sku, 0)
+                for amount, price in special_discount.get(sku):
 
-        # List of skus with freebies
+                    # List of skus with freebies
 
         def process_freebies(freebies):
             # Process all the freebie skus to reduce count (acts as cart tracker)
@@ -113,5 +116,6 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
