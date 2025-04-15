@@ -16,14 +16,28 @@ class CheckoutSolution:
                 return -1
             count[sku] = count.get(sku, 0) + 1
         products = ["E", "A", "B", "C", "D"]
+        for p in products:
+            if count.get(p) == 0:
+                continue
+            match p:
+                case "E":
+                    free_b, amount_e = self.process_E(count.get("E"))
+                    count["B"] -= free_b
+                    total += amount_e
+                case "A":
+                    amount_a = self.process_A(count.get("A"))
+                    total += amount_a
+                case "B":
+                    amount_b = self.process_B(count.get("B"))
+                    total += amount_b
+                case "C":
+                    amount_c = self.process_C(count.get("C"))
+                    total += amount_c
+                case "D":
+                    amount_d = self.process_D(count.get("D"))
+                    total += amount_d
 
-        free_b, amount_e = self.process_E(count.get("E"))
-        amount_a = self.process_A(count.get("A"))
-        amount_b = self.process_B(count.get("B") - free_b)
-        amount_c = self.process_C(count.get("C"))
-        amount_d = self.process_D(count.get("D"))
-
-        total += sum(amount_a, amount_b, amount_c, amount_d, amount_e)
+        # can reduce amount of B instead in lookup
         return total
     # Probably need to process E's first, to determine number of B's
 
@@ -53,5 +67,6 @@ class CheckoutSolution:
 
     def process_D(self, num_of_d):
         return num_of_d * 15
+
 
 
