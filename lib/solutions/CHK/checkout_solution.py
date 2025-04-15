@@ -49,8 +49,8 @@ class CheckoutSolution:
             count[sku] = count.get(sku, 0) + 1
         products = ["E", "A", "B", "C", "D", "F"]
         products = [chr(x) for x in range(ord("A"), ord("Z") + 1)]
-        specials_discount = dict()
-        specials_freebie = dict()
+        specials_discount = dict()  # SKU -> [[num, price], [num, price]]
+        specials_freebie = dict()  # SKU -> [[num, SKU]]
 
         for p in products:
             if count.get(p) == 0:
@@ -78,4 +78,5 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
