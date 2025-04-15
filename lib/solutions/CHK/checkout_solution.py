@@ -8,8 +8,9 @@ class CheckoutSolution:
         # need to find out how many, maybe lookup in dictionary
         # Need to apply special discount, maybe % and //
         allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        total = 0
         if not skus:
-            return -1
+            return total
         prices = {"A": 50, "B": 30, "C": 20, "D": 15}
         count = dict()
 
@@ -18,7 +19,6 @@ class CheckoutSolution:
                 return -1
             count[sku] = count.get(sku, 0) + 1
 
-        total = 0
         for item, freq in count.items():
             if freq == 0:
                 continue
@@ -35,5 +35,6 @@ class CheckoutSolution:
             else:
                 total += prices.get(item)
         return total
+
 
 
