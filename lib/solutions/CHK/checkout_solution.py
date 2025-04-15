@@ -17,6 +17,7 @@ class CheckoutSolution:
             if sku not in allowed:
                 return -1
             count[sku] = count.get(sku, 0) + 1
+
         total = 0
         for item, freq in count.items():
             if freq == 0:
@@ -34,4 +35,5 @@ class CheckoutSolution:
             else:
                 total += prices.get(item)
         return total
+
 
