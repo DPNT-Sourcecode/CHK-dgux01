@@ -4,6 +4,8 @@ class CheckoutSolution:
     # skus = unicode string
     # If more products, might need to make a super process, then do case match
     def checkout(self, skus):
+        return -1
+
         def process_A(num_of_a):
             multiples_5 = num_of_a // 5
             remainder_of_5 = num_of_a % 5
@@ -66,3 +68,4 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
