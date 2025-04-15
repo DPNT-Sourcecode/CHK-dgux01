@@ -27,8 +27,6 @@ class CheckoutSolution:
             else:
                 cart[2].append(sku)
 
-        def process(sku):
-
         def apply_discount():
             pass
 
@@ -36,6 +34,8 @@ class CheckoutSolution:
 
         def process_freebies(freebies):
             for f in freebies:
+                # unpack
+                num_required_to_buy, free_sku = special_freebie.get(f)
 
         def process_freebie(num, sku):
 
@@ -106,6 +106,7 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
 
