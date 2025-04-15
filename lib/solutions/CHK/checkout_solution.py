@@ -4,6 +4,14 @@ class CheckoutSolution:
     # skus = unicode string
     # If more products, might need to make a super process, then do case match
     def checkout(self, skus):
+        # IDEA: have a cart
+        cart = [[], [], []]  # Freebies, Discounts, everything else
+
+        for sku in skus:
+            if sku not in allowed:
+                return -1
+            count[sku] = count.get(sku, 0) + 1
+
         prices = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10, "G": 20, "H": 10, "I": 35,
                   "J": 60, "K": 80, "L": 90, "M": 15, "N": 40, "O": 10, "P": 50, "Q": 30, "R": 50, "S": 30, "T": 20, "U": 40, "V": 50, "W": 20, "X": 90, "Y": 10, "Z": 50}
         # SKU -> [[num, price], [num, price]]
@@ -63,10 +71,6 @@ class CheckoutSolution:
 
         count = dict()
 
-        for sku in skus:
-            if sku not in allowed:
-                return -1
-            count[sku] = count.get(sku, 0) + 1
         products = ["E", "A", "B", "C", "D", "F"]
         products = [chr(x) for x in range(ord("A"), ord("Z") + 1)]
 
@@ -96,6 +100,7 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
 
