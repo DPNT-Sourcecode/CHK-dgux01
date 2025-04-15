@@ -12,7 +12,7 @@ class CheckoutSolution:
 
             return (multiples_5 * 200) + (multiples_3 * 130) + (remainder_of_3 * 50)
 
-        def process_B(self, num_of_b):
+        def process_B(num_of_b):
             # What if number of B is less than 0
             if num_of_b < 1:
                 return 0
@@ -21,14 +21,14 @@ class CheckoutSolution:
 
             return (multiples_2 * 45) + (remainder_of_2 * 30)
 
-        def process_E(self, num_of_e):
+        def process_E(num_of_e):
             num_free_b = num_of_e // 2
             return num_free_b, num_of_e * 40
 
-        def process_C(self, num_of_c):
+        def process_C(num_of_c):
             return num_of_c * 20
 
-        def process_D(self, num_of_d):
+        def process_D(num_of_d):
             return num_of_d * 15
 
         allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -66,3 +66,4 @@ class CheckoutSolution:
 
         # can reduce amount of B instead in lookup
         return total
+
