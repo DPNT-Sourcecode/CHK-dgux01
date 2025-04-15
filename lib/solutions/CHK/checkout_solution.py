@@ -32,6 +32,9 @@ class CheckoutSolution:
         def process_D(num_of_d):
             return num_of_d * 15
 
+        def process_F(num_of_f):
+            multiples_2 = num_of_f // 3
+
         allowed = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         total = 0
         if not skus:
@@ -65,9 +68,13 @@ class CheckoutSolution:
                 case "D":
                     amount_d = process_D(count.get("D", 0))
                     total += amount_d
+                case "F":
+                    amount_f = process_F(count.get("F"), 0)
+                    total += amount_f
 
         # can reduce amount of B instead in lookup
         return total
+
 
 
 
