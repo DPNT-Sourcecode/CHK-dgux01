@@ -35,8 +35,3 @@ class CheckoutSolution:
             else:
                 total += (prices.get(item) * freq)
         return total
-
-
-
-
-
