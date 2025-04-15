@@ -18,6 +18,7 @@ class CheckoutSolution:
 
         free_b, amount_e = self.process_E(count.get("E"))
         amount_a = self.process_A(count.get("A"))
+        amount_b = self.process_B(count.get("B") - free_b)
         total += amount_e
     # Probably need to process E's first, to determine number of B's
 
@@ -30,7 +31,9 @@ class CheckoutSolution:
         return (multiples_5 * 200) + (multiples_3 * 130) + (remainder_of_3 * 50)
 
     def process_B(self, num_of_b):
-        # Maybe process E here?
+        # What if number of B is less than 0
+        if num_of_b < 1:
+            return 0
         multiples_2 = num_of_b // 2
         remainder_of_2 = num_of_b % 2
 
@@ -39,6 +42,7 @@ class CheckoutSolution:
     def process_E(self, num_of_e):
         num_free_b = num_of_e // 2
         return num_free_b, num_of_e * 40
+
 
 
 
