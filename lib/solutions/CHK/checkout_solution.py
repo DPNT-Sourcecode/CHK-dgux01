@@ -19,7 +19,10 @@ class CheckoutSolution:
         free_b, amount_e = self.process_E(count.get("E"))
         amount_a = self.process_A(count.get("A"))
         amount_b = self.process_B(count.get("B") - free_b)
-        total += amount_e
+        amount_c = self.process_C(count.get("C"))
+        amount_d = self.process_D(count.get("D"))
+
+        total += sum(amount_a, amount_b, amount_c, amount_d, amount_e)
     # Probably need to process E's first, to determine number of B's
 
     def process_A(self, num_of_a):
@@ -43,7 +46,8 @@ class CheckoutSolution:
         num_free_b = num_of_e // 2
         return num_free_b, num_of_e * 40
 
+    def process_C(self, num_of_c):
+        return num_of_c * 20
 
-
-
-
+    def process_D(self, num_of_d):
+        return num_of_d * 15
